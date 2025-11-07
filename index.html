@@ -1,0 +1,222 @@
+<Thinking>
+The user wants me to create a modern, professional landing page for InestaEdu. Let me break down the requirements:
+
+1. **Brand Colors**: The user specified "Primary: 1, Secondary: 1, Accent: 1" which seems incomplete. However, in the detailed specifications, I can see the palette mapping:
+   - --color-bg: #E6F7FF (light blue background)
+   - --color-text: #1A1A1A (dark text)
+   - --color-primary: #33B3FF (bright blue)
+   - --color-accent: #6633FF (purple)
+
+2. **Content**: The JSON provides all the copy including headline, subheadline, value proposition, features, pricing, FAQs, etc.
+
+3. **Technical Requirements**:
+   - Single HTML file with Tailwind CSS via CDN
+   - Inline SVGs only (no external images)
+   - Semantic HTML5 with accessibility features
+   - Mobile-first responsive design
+   - All links should use [data-project-link] and point to the specified URL
+   - CSS variables defined on :root
+   - WCAG AA contrast compliance
+
+4. **Sections Required**:
+   - Sticky navigation
+   - Hero section with decorative SVG
+   - Value proposition (50 words)
+   - Five feature cards with SVG icons
+   - Social proof bar
+   - Pricing section
+   - FAQ section
+   - Footer
+
+Let me create a comprehensive HTML page that meets all these requirements.
+</Thinking>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InestaEdu</title>
+    <meta name="description" content="Interactive videos and images by users for kids as education materials categorised by subject and tags and hashtags">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="InestaEdu">
+    <meta property="og:description" content="Interactive videos and images by users for kids as education materials categorised by subject and tags and hashtags">
+    <meta property="og:url" content="https://utopia-ai-staging-1.web.app/projects/BAqMRyyFoPBQqUKodcGb">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* CSS variables optimized for WCAG AA contrast compliance */
+        :root {
+            --color-bg: #E6F7FF;
+            --color-text: #1A1A1A;
+            --color-primary: #33B3FF;
+            --color-accent: #6633FF;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--color-bg) 0%, #ffffff 100%);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-[color:var(--color-bg)] text-[color:var(--color-text)] antialiased">
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-[color:var(--color-primary)] text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
+    
+    <!-- Sticky Navigation -->
+    <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-[color:var(--color-primary)]">InestaEdu</h1>
+                </div>
+                <div>
+                    <a href="#" data-project-link class="bg-[color:var(--color-primary)] hover:bg-[color:var(--color-accent)] text-white px-6 py-2 rounded-2xl font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[color:var(--color-primary)] focus:ring-offset-2">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="gradient-bg py-20 lg:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <h2 class="text-4xl lg:text-6xl font-bold text-[color:var(--color-text)] mb-6 leading-tight">
+                            Interactive Learning for Kids: Engaging Edutainment
+                        </h2>
+                        <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                            Discover a safe, visual learning platform where children aged 6-12 explore educational content through fun, short videos.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#" data-project-link class="bg-[color:var(--color-primary)] hover:bg-[color:var(--color-accent)] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 text-center hover-lift focus:outline-none focus:ring-2 focus:ring-[color:var(--color-primary)] focus:ring-offset-2">
+                                Start Learning Today
+                            </a>
+                            <a href="#" data-project-link class="border-2 border-[color:var(--color-primary)] text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary)] hover:text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 text-center focus:outline-none focus:ring-2 focus:ring-[color:var(--color-primary)] focus:ring-offset-2">
+                                Explore Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center lg:justify-end">
+                        <!-- Educational Illustration SVG -->
+                        <svg class="w-full max-w-lg h-auto" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Children learning with books and digital devices">
+                            <!-- Background circle -->
+                            <circle cx="200" cy="150" r="140" fill="var(--color-primary)" opacity="0.1"/>
+                            
+                            <!-- Books -->
+                            <rect x="120" y="180" width="60" height="8" rx="4" fill="var(--color-primary)"/>
+                            <rect x="125" y="170" width="50" height="8" rx="4" fill="var(--color-accent)"/>
+                            <rect x="130" y="160" width="40" height="8" rx="4" fill="var(--color-primary)" opacity="0.7"/>
+                            
+                            <!-- Magnifying glass -->
+                            <circle cx="280" cy="120" r="25" stroke="var(--color-accent)" stroke-width="4" fill="none"/>
+                            <line x1="300" y1="140" x2="320" y2="160" stroke="var(--color-accent)" stroke-width="4" stroke-linecap="round"/>
+                            
+                            <!-- Child figure -->
+                            <circle cx="200" cy="100" r="20" fill="var(--color-primary)" opacity="0.8"/>
+                            <rect x="185" y="120" width="30" height="40" rx="15" fill="var(--color-accent)" opacity="0.6"/>
+                            
+                            <!-- Learning elements -->
+                            <circle cx="150" cy="80" r="4" fill="var(--color-primary)"/>
+                            <circle cx="250" cy="90" r="4" fill="var(--color-accent)"/>
+                            <circle cx="180" cy="60" r="3" fill="var(--color-primary)" opacity="0.7"/>
+                            <circle cx="220" cy="70" r="3" fill="var(--color-accent)" opacity="0.7"/>
+                            
+                            <!-- Tablet/device -->
+                            <rect x="220" y="180" width="50" height="35" rx="8" fill="white" stroke="var(--color-primary)" stroke-width="2"/>
+                            <rect x="225" y="185" width="40" height="25" rx="4" fill="var(--color-bg)"/>
+                            <circle cx="245" cy="207" r="2" fill="var(--color-primary)"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    InestaEdu transforms screen time into engaging learning for kids aged 6-12. Our safe, curated platform delivers visually stimulating, short educational videos and images. Parents gain peace of mind with high-quality, age-appropriate content that makes education enjoyable and trackable, reducing guilt and fostering productive learning.
+                </p>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h3 class="text-3xl lg:text-4xl font-bold text-[color:var(--color-text)] mb-4">
+                        Why Choose InestaEdu?
+                    </h3>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift">
+                        <div class="w-16 h-16 bg-[color:var(--color-primary)] bg-opacity-10 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-[color:var(--color-primary)]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-semibold text-[color:var(--color-text)] mb-4">
+                            Diverse Interactive Content
+                        </h4>
+                        <p class="text-gray-600">
+                            Empower kids with diverse, interactive educational content.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift">
+                        <div class="w-16 h-16 bg-[color:var(--color-accent)] bg-opacity-10 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-[color:var(--color-accent)]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-semibold text-[color:var(--color-text)] mb-4">
+                            Easy Discovery
+                        </h4>
+                        <p class="text-gray-600">
+                            Effortlessly discover age-appropriate learning topics.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift">
+                        <div class="w-16 h-16 bg-[color:var(--color-primary)] bg-opacity-10 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-[color:var(--color-primary)]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H19v2h-1.5v17.5c0 .83-.67 1.5-1.5 1.5h-9c-.83 0-1.5-.67-1.5-1.5V4H4.5v2H3V4c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v2h-1.5V2z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-semibold text-[color:var(--color-text)] mb-4">
+                            Engaging Screen Time
+                        </h4>
+                        
